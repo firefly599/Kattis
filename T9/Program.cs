@@ -27,7 +27,7 @@ namespace T9
                 {"p", "7"},
                 {"q", "77"},
                 {"r", "777"},
-                {"s", "777"},
+                {"s", "7777"},
                 {"t", "8"},
                 {"u", "88"},
                 {"v", "888"},
@@ -62,7 +62,7 @@ namespace T9
                         }
                     }
                 }
-                Console.WriteLine("Case #{0}: {1} ", i, converted);
+                Console.WriteLine("Case #{0}: {1}", i, converted);
             }
         }
     }
