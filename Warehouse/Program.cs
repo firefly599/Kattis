@@ -52,7 +52,6 @@ namespace Warehouse
                     }
                 }
 
-
                 List<Item> sorted = items.OrderByDescending(o=>o.amount).ThenBy(o=>o.name).ToList();
                 Console.WriteLine(items.Count);
                 foreach (Item obj in sorted)
