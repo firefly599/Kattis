@@ -83,10 +83,9 @@ namespace Schedule
                 {
                     Time current = amSorted[i];
                     if (current.hour == 12)
-                    {
-                        Time toMove = amSorted[i];
+                    { 
                         amSorted.RemoveAt(i);
-                        amSorted.Insert(pushed, toMove);
+                        amSorted.Insert(pushed, current);
                         pushed++;
                     }
                 }
@@ -96,10 +95,9 @@ namespace Schedule
                 {
                     Time current = pmSorted[i];
                     if (current.hour == 12)
-                    {
-                        Time toMove = pmSorted[i];
+                    { 
                         pmSorted.RemoveAt(i);
-                        pmSorted.Insert(pushed, toMove);
+                        pmSorted.Insert(pushed, current);
                         pushed++;
                     }
                 }
