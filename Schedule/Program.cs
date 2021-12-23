@@ -20,9 +20,9 @@ namespace Schedule
         public void display()
         {
             string displayMinute = this.minute.ToString();
-            if (this.minute == 0)
+            if (this.minute <= 10)
             {
-                displayMinute = "00";
+                displayMinute = "0" + this.minute;
             }
             Console.WriteLine("{0}:{1} {2}", this.hour, displayMinute, half);
         }
@@ -78,27 +78,29 @@ namespace Schedule
                 // Sorts times by hours and minutes
                 List<Time> amSorted = amTimes.OrderBy(x=>x.hour).ThenBy(x=>x.minute).ToList();
                 // If a time is 12:00 push to front
+                int pushed = 0;
                 for (int i = 0; i < amSorted.Count; i++)
                 {
                     Time current = amSorted[i];
-                    if (current.hour == 12 && current.minute == 0)
+                    if (current.hour == 12)
                     {
-                        Time toMove = amSorted[amSorted.Count - 1];
-                        amSorted.RemoveAt(amSorted.Count - 1);
-                        amSorted.Insert(0, toMove);
-                        i--;
+                        Time toMove = amSorted[i];
+                        amSorted.RemoveAt(i);
+                        amSorted.Insert(pushed, toMove);
+                        pushed++;
                     }
                 }
                 List<Time> pmSorted = pmTimes.OrderBy(x=>x.hour).ThenBy(x=>x.minute).ToList();
+                pushed = 0;
                 for (int i = 0; i < pmSorted.Count; i++)
                 {
                     Time current = pmSorted[i];
-                    if (current.hour == 12 && current.minute == 0)
+                    if (current.hour == 12)
                     {
-                        Time toMove = pmSorted[pmSorted.Count - 1];
-                        pmSorted.RemoveAt(pmSorted.Count - 1);
-                        pmSorted.Insert(0, toMove);
-                        i--;
+                        Time toMove = pmSorted[i];
+                        pmSorted.RemoveAt(i);
+                        pmSorted.Insert(pushed, toMove);
+                        pushed++;
                     }
                 }
 
