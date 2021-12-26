@@ -24,7 +24,6 @@ namespace Relocation
                     Console.WriteLine(distance);
                 }
             }
-            
         }
     }
 }
