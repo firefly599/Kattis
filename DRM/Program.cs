@@ -17,6 +17,7 @@ namespace DRM
 
         static string shiftString(string input, int rotationValue)
         {
+            // Shifts each character in the string by the rotation value
             int temp;
             string shifted = "";
             for (int i = 0; i < input.Length; i++)
@@ -33,6 +34,7 @@ namespace DRM
 
         static string merge(string left, string right)
         {
+            // Merges the strings by offsetting the left string by the index value of the right string
             string shifted = "";
             int shift;
             int temp;
