@@ -12,11 +12,10 @@ namespace Engineering
             string[] split;
             string word;
             string line;
-            string[] output;
-            while (string.IsNullOrEmpty(line = Console.ReadLine())) //  
+            string output = "";
+            while (string.IsNullOrEmpty(line = Console.ReadLine())) // string.IsNullOrEmpty(line = Console.ReadLine())
             {
                 split = line.Split(" ");
-                output = new string[split.Length];
                 for (int i = 0; i < split.Length; i++)
                 {
                     word = split[i];
@@ -24,15 +23,18 @@ namespace Engineering
                     if (!dictionary.Contains(word))
                     {
                         dictionary.Add(word);
-                        output[i] = split[i];
+                        output += split[i];
                     }
                     else
                     {
-                        output[i] = ".";
+                        output += ".";
                     }
+                    output += " ";
                 }
-                Console.WriteLine(string.Join(' ', output));    
+                output += "\n";
             }
+            output = output.Substring(0, output.Length - 2);
+            Console.WriteLine(output);
         }
     }
 }
