@@ -9,15 +9,31 @@ namespace Food
         {
             // Free Food
             int amount = int.Parse(Console.ReadLine());
-            int overlap = 0;
-            int[] times;
-            List<int[]> days = new List<int[]>();
-            for (int i = 0; i < amount; i++)
-            {
-                times = Array.ConvertAll(Console.ReadLine().Split(" "), int.Parse);
-                days.Add(times);
-            }
+            int a;
+            int b;
+            int total = 0;
+            int[] values;
+            bool[] days = new bool[400];
            
+            for (int t = 0; t < amount; t++)
+            {
+                values = Array.ConvertAll(Console.ReadLine().Split(" "), int.Parse);
+                a = values[0];
+                b = values[1];
+                for (int i = a; i <= b; i++)
+                {
+                    days[i] = true;
+                }
+            }
+
+            for (int i = 0; i < days.Length; i++)
+            {
+                if (days[i])
+                {
+                    total++;
+                }
+            }
+            Console.WriteLine(total);
         }
     }
 }
